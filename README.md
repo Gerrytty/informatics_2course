@@ -1,1 +1,1 @@
-# informatics_2course
+# Михайлова Юля 11-806
