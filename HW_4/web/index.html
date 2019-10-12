@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Random numbers</title>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+
+      var counter = 1;
+
+      function saveHistory(s) {
+          var str = counter + ": " + s;
+          $("#history").append("<tr><td>" + str + "</td><td>");
+      }
+
+    $(document).on("click", "#somebutton", function() {
+      $.get("random", function(responseText) {
+        $("#somediv").text("Random number = " + responseText);
+        saveHistory(responseText);
+        counter++;
+      });
+    });
+
+
+  </script>
+</head>
+
+
+<body>
+<h1>Random.org lite version</h1>
+<button id="somebutton">Get random number</button>
+<div id="somediv"></div>
+<h2>History</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Numbers was: </th>
+    </tr>
+    </thead>
+    <tbody id="history"></tbody>
+</table>
+</body>
+</html>
