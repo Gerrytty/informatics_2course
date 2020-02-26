@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/css/uikit.min.css" />
+    <script src="../static/js/uikit.min.js"></script>
+    <script src="../static/js/uikit-icons.min.js"></script>
+</head>
+<body>
+
+<div>
+
+    <div class="uk-column-1-2 uk-background-primary uk-light uk-padding">
+
+        <div align="right" style="padding-left: 650px">
+            <h2>NoteBook</h2>
+        </div>
+
+        <div align="right" class="uk-margin">
+
+            <form class="uk-search uk-search-default" method="post" action="/search">
+                <span uk-search-icon></span>
+                <input class="uk-search-input" type="search" placeholder="Search...">
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+<div>
+    <br><br>
+
+    <div align="center">
+
+        <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+            <h3 class="uk-card-title">Title</h3>
+            <p>Text</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div align="center">
+
+    <br><br>
+
+    <form method="post" action="/add">
+        <input type="submit" class="uk-button uk-button-primary" value="Add note">
+    </form>
+
+</div>
+
+
+<div>
+
+    <br><br>
+
+    <ul class="uk-pagination uk-flex-center" uk-margin>
+
+        <li><a href="#"><span uk-pagination-previous></span></a></li>
+
+        <li><a href="/notes/1">1</a></li>
+
+        <li><a href="/notes/2">2</a></li>
+
+        <li><a href="/notes/3">3</a></li>
+
+        <li class="uk-disabled"><span>...</span></li>
+
+        <li><a href="/notes/end">end</a></li>
+
+        <li><a href="#"><span uk-pagination-next></span></a></li>
+    </ul>
+
+</div>
+
+</body>
+</html>
