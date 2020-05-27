@@ -15,7 +15,7 @@ public class ContextTransactionRepository {
         methods = new ArrayList<>();
     }
 
-    public boolean consists(Method method) {
+    public boolean contains(Method method) {
         return methods.contains(method);
     }
 
@@ -24,12 +24,7 @@ public class ContextTransactionRepository {
     }
 
     public Object getReturnedValue(Method method) {
-        for (Method m : methods) {
-            if(m.equals(method)) {
-                return m.getReturnedValue();
-            }
-        }
-        return null;
+        return methods.get(methods.indexOf(method)).getReturnedValue();
     }
 
 }

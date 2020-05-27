@@ -23,4 +23,9 @@ public class Method {
         return (o instanceof Method) && uuid.equals(((Method) o).uuid) && name.equals(((Method) o).name);
     }
 
+    public Method(String uuid, String name) {
+        this.uuid = uuid;
+        this.name = name;
+    }
+
 }

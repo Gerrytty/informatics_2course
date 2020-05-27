@@ -32,16 +32,14 @@ public class TransactionAspect {
     @Around("callAspect(uuid)")
     public Object beforeCallAtMethod(ProceedingJoinPoint jp, String uuid) throws Throwable {
 
-        Method method = new Method();
-        method.setName(jp.getSignature().getName());
-        method.setUuid(uuid);
+        Method method = new Method(uuid, jp.getSignature().getName());
 
-        if(!contextTransactionRepository.consists(method)) {
+        if(!contextTransactionRepository.contains(method)) {
             Object returned = jp.proceed();
             method.setReturnedValue(returned);
             contextTransactionRepository.save(method);
 
-            Optional<MethodEntity> methodEntity = transactionsRepository.findByUuid(method.getUuid());
+            Optional<MethodEntity> methodEntity = transactionsRepository.findByUuid(uuid);
 
             if(methodEntity.isPresent()) {
                 return objectMapper.readValue(methodEntity.get().getReturnedValue(),

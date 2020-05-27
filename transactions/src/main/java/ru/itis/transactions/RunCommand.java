@@ -23,5 +23,7 @@ public class RunCommand implements CommandLineRunner {
         System.out.println(s1);
         System.out.println(s2);
         System.out.println(s3);
+//        tests.t2("3");
+//        tests.t2("3");
     }
 }
