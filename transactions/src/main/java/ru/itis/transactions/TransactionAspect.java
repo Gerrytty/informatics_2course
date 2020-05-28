@@ -35,22 +35,24 @@ public class TransactionAspect {
         Method method = new Method(uuid, jp.getSignature().getName());
 
         if(!contextTransactionRepository.contains(method)) {
-            Object returned = jp.proceed();
-            method.setReturnedValue(returned);
-            contextTransactionRepository.save(method);
 
             Optional<MethodEntity> methodEntity = transactionsRepository.findByUuid(uuid);
 
             if(methodEntity.isPresent()) {
-                return objectMapper.readValue(methodEntity.get().getReturnedValue(),
+                Object returned = methodEntity.get().getReturnedValue().equals("null") ? null :
+                        objectMapper.readValue(methodEntity.get().getReturnedValue(),
                         ((MethodSignature) jp.getSignature()).getReturnType());
+
+                method.setReturnedValue(returned);
+                contextTransactionRepository.save(method);
+
+                return returned;
             }
 
             else {
                 transactionsRepository.save(MethodEntity.from(method));
+                return jp.proceed();
             }
-
-            return returned;
         }
 
         else {

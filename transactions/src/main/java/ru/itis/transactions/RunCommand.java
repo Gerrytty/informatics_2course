@@ -17,13 +17,15 @@ public class RunCommand implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         System.out.println("-----------------------------");
-        String s1 = tests.t1("1", "Hello");
-        String s2 = tests.t1("1", "Hi");
-        String s3 = tests.t1("2", "Hi!");
-        System.out.println(s1);
-        System.out.println(s2);
-        System.out.println(s3);
-//        tests.t2("3");
-//        tests.t2("3");
+//        String s1 = tests.t1("1", "Hello");
+//        String s2 = tests.t1("1", "Hi");
+//        String s3 = tests.t1("2", "Hi!");
+//        System.out.println(s1);
+//        System.out.println(s2);
+//        System.out.println(s3);
+        tests.t2("3");
+        tests.t2("3");
+
+//        tests.t3("7");
     }
 }

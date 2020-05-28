@@ -16,4 +16,9 @@ public class Tests {
         System.out.println("T2");
     }
 
+    @MyTransaction
+    public int t3(String uuid) {
+        return 5;
+    }
+
 }
