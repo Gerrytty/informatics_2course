@@ -26,6 +26,9 @@ public class RunCommand implements CommandLineRunner {
         tests.t2("3");
         tests.t2("3");
 
+        tests.t4("10");
+        tests.t4("10");
+
 //        tests.t3("7");
     }
 }

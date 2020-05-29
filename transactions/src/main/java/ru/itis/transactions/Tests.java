@@ -2,6 +2,9 @@ package ru.itis.transactions;
 
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class Tests {
 
@@ -20,5 +23,4 @@ public class Tests {
     public int t3(String uuid) {
         return 5;
     }
-
 }

@@ -19,7 +19,8 @@ public class TransactionAspect {
 
     private ObjectMapper objectMapper;
 
-    public TransactionAspect(ContextTransactionRepository contextTransactionRepository, TransactionsRepository transactionsRepository) {
+    public TransactionAspect(ContextTransactionRepository contextTransactionRepository,
+                             TransactionsRepository transactionsRepository) {
         this.contextTransactionRepository = contextTransactionRepository;
         this.transactionsRepository = transactionsRepository;
         objectMapper = new ObjectMapper();
@@ -50,8 +51,13 @@ public class TransactionAspect {
             }
 
             else {
+
+                Object returned = jp.proceed();
+                method.setReturnedValue(returned);
                 transactionsRepository.save(MethodEntity.from(method));
-                return jp.proceed();
+                contextTransactionRepository.save(method);
+
+                return returned;
             }
         }
 
